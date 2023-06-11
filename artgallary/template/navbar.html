@@ -1,0 +1,52 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg" id="main-navbar">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img alt="" src="{% static 'img/logo-back-remove.png' %}" style="height: 50px;"></a>
+        <button aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler" data-bs-target="#navbarNavAltMarkup"
+                data-bs-toggle="collapse" style="border-color: #0aa3ff;"
+                type="button">
+            <span class="fa fa-bars" style="color:#0aa3ff;"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav nav-menu">
+                <a class="nav-link  menu-nav" href="{% url 'home' %}">Home</a>
+                <a class="nav-link  menu-nav" href="#">Gallery</a>
+                <a class="nav-link  menu-nav" href="#">Collections</a>
+                <a class="nav-link  menu-nav" href="#">Pricing</a>
+                <a class="nav-link  menu-nav" href="#">Blog</a>
+                <a class="nav-link  menu-nav" href="#">Contact As</a>
+
+            </div>
+            <form class="" id="authstyle">
+                {% if user.is_authenticated %}
+                <a class="btn header-links" href="{% url 'profile' %}" style="color: white; border-color: white;"
+                   type="submit">{{user.username}}&nbsp;&nbsp;&nbsp;</a>
+                <a class="btn header-links" href="{% url 'logout' %}" style="color: white; border-color: white;"
+                   type="submit"> Logout&nbsp;&nbsp;&nbsp; </a>
+                <button class="btn btn-outline-light fafa-nav " style="color: red;" type="submit"><i
+                        class="fa fa-heart"></i></button>
+                <button class="btn btn-outline-light fafa-nav " style="color: blue;" type="submit"><i
+                        class="fa fa-shopping-cart"></i></button>
+                <!--                 <form action="#" class="d-flex" method="get" role="search">-->
+                <button class="btn btn-outline-light fafa-nav " style="color: green;" type="submit"><i
+                        class="fa fa-search"></i></button>
+                <!--                </form>-->
+                {% else %}
+                <a class="btn header-links" href="{% url 'sign_up' %}" style="color: white; border-color: white;"
+                   type="submit"> Create Account &nbsp;&nbsp;&nbsp;</a>
+                <a class="btn header-links" href="{% url 'login' %}"
+                   style="color: white; border-color: white; " type="submit">Log In&nbsp;&nbsp;&nbsp;</a>
+                <button class="btn btn-outline-light fafa-nav " style="color: red;" type="submit"><i
+                        class="fa fa-heart"></i></button>
+                <button class="btn btn-outline-light fafa-nav " style="color: blue;" type="submit"><i
+                        class="fa fa-shopping-cart"></i></button>
+                <!--                 <form action="#" class="d-flex" method="get" role="search">-->
+                <button class="btn btn-outline-light fafa-nav " style="color: green;" type="submit"><i
+                        class="fa fa-search"></i></button>
+                <!--                </form>-->
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</nav>
